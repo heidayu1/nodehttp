@@ -5,7 +5,7 @@ const express = require('express');
 //use hbs view engine
 const hbs = require('hbs');
 
-const app =express();
+const app = express();
 
 const hostname = '127.0.0.1';
 const port = 3000;

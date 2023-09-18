@@ -7,7 +7,8 @@ const hbs = require('hbs');
 
 const app = express();
 
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
+const local = '127.0.0.1';
 const port = 3000;
 
 //set dynamic views file
@@ -21,6 +22,10 @@ app.get('/',(req, res) => {
     //render index.hbs file
     res.render('index');
 });
+//route for vita
+app.get('/vita',(req, res) =>{
+    res.render('vita');
+})
 
 app.get('/home', function (req, res) {
     res.send('Welcome to Express');
@@ -31,5 +36,26 @@ app.get('/about', function (req, res) {
 });
 
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running at http://${local}:${port}/`);
 });
+
+const os = require('os');
+const Interface= require('readline');
+let networkInterfaces = os.networkInterfaces();
+
+function data() {
+    var data = networkInterfaces['Wi-Fi']
+    return data[0].cidr;
+};
+
+function data2() {
+    var check = networkInterfaces['Wi-Fi']
+    return check[0].cidr;
+};
+
+console.log(check); 
+
+console.log(`Access from outside http://${data().split('/',1)}`);
+// const data1=data(networkInterfaces)
+// console.log(data1)
+//console.log{(`Access from outside http://${data[0].cidr.split('/',1)}:3000`);)};

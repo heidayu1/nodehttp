@@ -40,7 +40,7 @@ app.listen(port, hostname, () => {
 });
 
 const os = require('os');
-const Interface= require('readline');
+const {Interface}= require('readline');
 let networkInterfaces = os.networkInterfaces();
 
 function data() {
